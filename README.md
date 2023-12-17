@@ -13,7 +13,6 @@ The Salary Analysis Project involves database management, SQL querying, and data
 This repository contains:
 
 SQL scripts for database creation, data import, and salary calculation.
-Sample dataset (in SQL format or instructions on importing external data).
 Analysis queries for exploring salary distributions, averages, and departmental comparisons.
 
 **Key Features**
@@ -25,10 +24,3 @@ Analysis queries for average salaries, departmental comparisons, and salary dist
 **Technologies Used**
 
 SQL (Structured Query Language)
-
-**How to Use**
-
-Clone the repository to your local machine.
-Import the provided dataset or use your own data.
-Execute the SQL scripts in your database environment.
-Explore the analysis queries to derive insights from the salary data.
