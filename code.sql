@@ -55,24 +55,13 @@ VALUES
 UPDATE Employees
 SET Salary = 
     CASE
-        WHEN ExperienceYears >= 5 THEN (
-            SELECT BaseSalary +  (ExperienceYears - 5) * BaseSalaryIncrement
+        WHEN ExperienceYears >= 0 THEN (
+            SELECT BaseSalary + ExperienceYears * BaseSalaryIncrement
             FROM Positions p
             JOIN Departments d ON Employees.DepartmentID = d.DepartmentID
             WHERE Employees.PositionID = p.PositionID
         )
-        WHEN ExperienceYears >= 3 THEN (
-            SELECT BaseSalary +  (ExperienceYears - 3) * BaseSalaryIncrement
-            FROM Positions p
-            JOIN Departments d ON Employees.DepartmentID = d.DepartmentID
-            WHERE Employees.PositionID = p.PositionID
-        )
-        ELSE (
-            SELECT BaseSalary + BaseSalaryIncrement
-            FROM Positions p
-            JOIN Departments d ON Employees.DepartmentID = d.DepartmentID
-            WHERE Employees.PositionID = p.PositionID
-        )
+        ELSE Salary -- Keep the current Salary for ExperienceYears < 0
     END;
 
 -- Analyze salary distribution by department
