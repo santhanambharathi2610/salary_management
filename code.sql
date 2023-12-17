@@ -56,13 +56,13 @@ UPDATE Employees
 SET Salary = 
     CASE
         WHEN ExperienceYears >= 5 THEN (
-            SELECT BaseSalary + BaseSalaryIncrement + (ExperienceYears - 5) * 3000
+            SELECT BaseSalary +  (ExperienceYears - 5) * BaseSalaryIncrement
             FROM Positions p
             JOIN Departments d ON Employees.DepartmentID = d.DepartmentID
             WHERE Employees.PositionID = p.PositionID
         )
         WHEN ExperienceYears >= 3 THEN (
-            SELECT BaseSalary + BaseSalaryIncrement + (ExperienceYears - 3) * 2000
+            SELECT BaseSalary +  (ExperienceYears - 3) * BaseSalaryIncrement
             FROM Positions p
             JOIN Departments d ON Employees.DepartmentID = d.DepartmentID
             WHERE Employees.PositionID = p.PositionID
